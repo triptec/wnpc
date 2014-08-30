@@ -1,0 +1,5 @@
+h3#move-title Movies
+
+ul
+    each movie in model
+        li = movie.title

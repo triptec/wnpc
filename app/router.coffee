@@ -5,5 +5,6 @@ Router = Ember.Router.extend(
 )
 
 Router.map ->
+  @resource('movies')
 
 `export default Router`
