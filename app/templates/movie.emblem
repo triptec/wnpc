@@ -1,3 +1,11 @@
-h3#movie-title = model.title
+h3#movie-title {{model.title}} ({{model.rating}})
 
-p = model.description
+p {{model.description}}
+
+ul
+    each torrent in model.items
+        li
+            div quality: {{torrent.quality}}
+            div size: {{torrent.size_bytes}}
+            div seeds: {{torrent.torrent_seeds}}
+            div torrent: {{torrent.torrent_url}}
