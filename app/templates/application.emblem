@@ -1,3 +1,4 @@
 h2#title Who needs popcorn
+link-to 'movies' | Movies
 
 == outlet
