@@ -1,4 +1,8 @@
 h2#title Who needs popcorn
-link-to 'movies' | Movies
+ul
+    li
+        link-to 'movies' | Movies
+    li
+        link-to 'shows' | Shows
 
 == outlet

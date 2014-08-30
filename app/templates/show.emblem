@@ -1,0 +1,20 @@
+h3#show-title {{model.title}} ({{model.rating}})
+
+p {{model.description}}
+
+ul
+    each season in model.seasons
+        li
+            div Season {{season.season_nr}}
+            ul
+                each episode in season.episodes
+                    li
+
+                        div ep: {{episode.episode}}
+                        div title: {{episode.title}}
+                        div style="display:none"
+                            each torrent in episode.items
+                                div quality: {{torrent.quality}}
+                                div size: {{torrent.size_bytes}}
+                                div seeds: {{torrent.torrent_seeds}}
+                                div torrent: {{torrent.torrent_url}}
