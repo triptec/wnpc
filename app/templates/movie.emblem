@@ -9,3 +9,4 @@ ul
             div size: {{torrent.size_bytes}}
             div seeds: {{torrent.torrent_seeds}}
             div torrent: {{torrent.torrent_url}}
+            button{action 'select' torrent.torrent_url} Select
