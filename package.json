@@ -1,7 +1,7 @@
 {
   "name": "wnpc",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": "https://github.com/triptec/wnpc",
   "engines": {
     "node": ">= 0.10.0"
   },
