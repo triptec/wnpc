@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wnpc</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/wnpc.css">
+  </head>
+  <body>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/wnpc.js"></script>
+    <script>
+      window.WnpcENV = require('wnpc/config/environment')['default'];
+      window.EmberENV = window.WnpcENV.EmberENV;
+      window.Wnpc = require('wnpc/app')['default'].create(WnpcENV.APP);
+    </script>
+  </body>
+</html>
