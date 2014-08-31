@@ -15,22 +15,7 @@ Show = DS.Model.extend(
   writers: DS.attr("string")
   year: DS.attr("number")
   yts: DS.attr("string")
-  seasons_arr: null
-  seasons: (->
-    @getSeasons() unless @get('seasons_arr')
-    return @get('seasons_arr')
-  ).property('seasons_arr')
-  getSeasons: (->
-    return unless @get('imdb')
-    Ember.$.getJSON("http://api.torrentsapi.com/show?formats=mp4&imdb=#{@get('imdb')}").then((response)=>
-      res = Object.keys(response).map (value, index)->
-        {
-          season_nr: value,
-          episodes: response[value]
-        }
-      @set('seasons', res)
-    )
-  )
+  show_detailed: DS.belongsTo('show-detailed')
 )
 
 `export default Show`

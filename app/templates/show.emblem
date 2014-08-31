@@ -3,7 +3,7 @@ h3#show-title {{model.title}} ({{model.rating}})
 p {{model.description}}
 
 ul
-    each season in model.seasons
+    each season in model.show_detailed.seasons
         li
             div Season {{season.season_nr}}
             ul
@@ -12,9 +12,9 @@ ul
 
                         div ep: {{episode.episode}}
                         div title: {{episode.title}}
-                        div style="display:none"
-                            each torrent in episode.items
-                                div quality: {{torrent.quality}}
-                                div size: {{torrent.size_bytes}}
-                                div seeds: {{torrent.torrent_seeds}}
-                                div torrent: {{torrent.torrent_url}}
+                        with episode.items.firstObject as torrent
+                            div quality: {{torrent.quality}}
+                            div size: {{torrent.size_bytes}}
+                            div seeds: {{torrent.torrent_seeds}}
+                            div torrent: {{torrent.torrent_url}}
+                            button{action 'select' torrent.torrent_url} Select

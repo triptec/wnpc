@@ -1,7 +1,8 @@
 `import DS from 'ember-data'`
 
-ApplicationAdapter = DS.RESTAdapter.extend(
-  host: 'http://api.torrentsapi.com'
+ApplicationAdapter = DS.ActiveModelAdapter.extend(
+  host: WnpcENV.APP.apiHost
+  namespace: 'api/v1'
 )
 
 `export default ApplicationAdapter`
