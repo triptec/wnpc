@@ -3,7 +3,8 @@
     "document": true,
     "window": true,
     "-Promise": true,
-    "WnpcENV": true
+    "WnpcENV": true,
+    "EmberSockets": true
   },
   "browser" : true,
   "boss" : true,

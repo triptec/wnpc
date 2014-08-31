@@ -24,6 +24,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.socketHost = 'localhost'
+    ENV.APP.socketPort = 3000
+
   }
 
   if (environment === 'test') {
@@ -31,7 +34,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.socketHost = location.hostname,
+    ENV.APP.socketPort = location.port
   }
 
   return ENV;
