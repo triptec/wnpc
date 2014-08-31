@@ -13,5 +13,8 @@
   "devDependencies": {
     "bootstrap": "~3.2.0",
     "ember-sockets": "~0.6.10"
+  },
+  "resolutions": {
+    "ember": "1.7.0"
   }
 }
