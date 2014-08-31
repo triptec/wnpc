@@ -12,9 +12,13 @@ ul
 
                         div ep: {{episode.episode}}
                         div title: {{episode.title}}
-                        with episode.items.firstObject as torrent
-                            div quality: {{torrent.quality}}
-                            div size: {{torrent.size_bytes}}
-                            div seeds: {{torrent.torrent_seeds}}
-                            div torrent: {{torrent.torrent_url}}
-                            button{action 'select' torrent.torrent_url} Select
+                        with episode.items.firstObject as torrent controller="torrent"
+                            div quality: {{torrent.content.quality}}
+                            div size: {{torrent.content.size_bytes}}
+                            div seeds: {{torrent.content.torrent_seeds}}
+                            div torrent: {{torrent.content.torrent_url}}
+                            ul
+                                each file in torrent.content.files
+                                    li
+                                        a href="http://localhost:3000/stream/{{unbound torrent.content.id}}/{{unbound file.encoded_path}}" target="_blank" {{unbound file.path}}
+                            button{action 'select' torrent.content.torrent_url target="torrent"} Select

@@ -10,6 +10,7 @@ Torrent = DS.Model.extend {
   torrent_seeds: DS.attr("number")
   torrent_url: DS.attr("string")
   type: DS.attr("string")
+  files: []
 }
 
 `export default Torrent`
