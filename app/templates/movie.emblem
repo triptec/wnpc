@@ -12,5 +12,5 @@ ul
             ul
                 each file in torrent.content.files
                     li
-                        a href="http://localhost:3000/stream/{{unbound torrent.content.id}}/{{unbound file.encoded_path}}" target="_blank" {{unbound file.path}}
+                        a href="{{unbound WnpcENV.APP.apiHost}}/stream/{{unbound torrent.content.id}}/{{unbound file.encoded_path}}" target="_blank" {{unbound file.path}}
             button{action 'select' torrent.content.torrent_url target="torrent"} Select
