@@ -34,9 +34,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.socketHost = '/'
+    ENV.APP.socketHost = ''
     ENV.APP.socketPort = 3000
-    ENV.APP.apiHost = '/'
+    ENV.APP.apiHost = ''
   }
 
   return ENV;
