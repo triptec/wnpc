@@ -21,4 +21,13 @@ ul
                                 each file in torrent.content.files
                                     li
                                         a href="{{unbound WnpcENV.APP.apiHost}}/stream/{{unbound torrent.content.id}}/{{unbound file.encoded_path}}" target="_blank" {{unbound file.path}}
+                                    li
+                                        button{action 'play' file.stream_url target="torrent"} Play
+                                        button{action 'pause' target="torrent"} Pause
+                                        button{action 'quit' target="torrent"} Quit
+                                        button{action 'torrent_pause' target="torrent"} Pause torrent
+                                        button{action 'torrent_resume' target="torrent"} Resume torrent
+                                        button{action 'torrent_select' _view.contentIndex target="torrent"} Select file
+                                        button{action 'torrent_deselect' _view.contentIndex target="torrent"} Deselect file
+
                             button{action 'select' torrent.content.torrent_url target="torrent"} Select

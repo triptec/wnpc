@@ -19,6 +19,14 @@ TorrentController = Ember.Controller.extend(
       @socket.get('socket').emit('player_play', link)
     pause: ->
       @socket.get('socket').emit('player_pause', {})
+    torrent_pause: ->
+      @socket.get('socket').emit('torrent_pause', @get('content.id').toLowerCase())
+    torrent_resume: ->
+      @socket.get('socket').emit('torrent_resume', @get('content.id').toLowerCase())
+    torrent_select: (file_index)->
+      @socket.get('socket').emit('torrent_select', @get('content.id').toLowerCase(), file_index)
+    torrent_deselect: (file_index)->
+      @socket.get('socket').emit('torrent_deselect', @get('content.id').toLowerCase(), file_index)
     quit: ->
       @socket.get('socket').emit('player_quit', {})
 )
