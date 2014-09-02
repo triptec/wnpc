@@ -3,7 +3,6 @@
 ApplicationView = Ember.View.extend(
   didInsertElement: ->
     @snapper = new Snap(element: @$().find('#content')[0])
-    console.log @snapper
 
   actions:
     toggleMenu: ->
@@ -11,6 +10,9 @@ ApplicationView = Ember.View.extend(
         @snapper.close()
       else
         @snapper.open "left"
+
+    hideMenu: ->
+      @snapper.close()
 )
 
 `export default ApplicationView`

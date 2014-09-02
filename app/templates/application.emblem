@@ -1,10 +1,10 @@
 .snap-drawers
   .snap-drawer.snap-drawer-left
     ul
-      li
-        link-to 'movies' | Movies
-      li
-        link-to 'shows' | Shows
+      link-to 'movies' tag="li"
+        a click="hideMenu target='view'" Movies
+      link-to 'shows' tag="li"
+        a click="hideMenu target='view'" Shows
 
 #content.snap-content.clearfix
   a click="toggleMenu target='view'" Show/Hide menu
