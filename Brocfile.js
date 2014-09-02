@@ -5,8 +5,15 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp();
 
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+
+// CSS
+app.import('bower_components/normalize.css/normalize.css');
+
+// Javascript
+app.import('bower_components/snapjs/snap.js');
 app.import('bower_components/socket.io-client/socket.io.js');
 app.import('bower_components/ember-sockets/dist/ember-sockets.js');
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //

@@ -1,8 +1,13 @@
-h2#title Who needs popcorn
-ul
-    li
+.snap-drawers
+  .snap-drawer.snap-drawer-left
+    ul
+      li
         link-to 'movies' | Movies
-    li
+      li
         link-to 'shows' | Shows
 
-== outlet
+#content.snap-content.clearfix
+  a click="toggleMenu target='view'" Show/Hide menu
+  h2#title Who needs popcorn
+
+  == outlet

@@ -1,0 +1,13 @@
+.snap-drawers {
+  position: absolute;
+
+  .left-drawer  {
+    position: absolute;
+  }
+}
+
+#content {
+  position: absolute;
+  overflow: auto;
+  background: #fff;
+}
