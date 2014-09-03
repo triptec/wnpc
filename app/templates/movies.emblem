@@ -3,6 +3,7 @@ h3#movies-title Movies
 == outlet
 
 ul
-    each movie in model
-        li
-            link-to 'movie' movie | {{movie.title}}
+  each movie in model
+    link-to 'movie' movie tag="li" 
+      img src=movie.posterMed
+      h4 {{movie.title}}

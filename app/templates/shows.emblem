@@ -3,6 +3,8 @@ h3#shows-title Shows
 == outlet
 
 ul
-    each show in model
-        li
-            link-to 'show' show | {{show.title}}
+  each show in model
+    link-to 'show' movie tag="li" 
+      img src=show.posterMed
+      h4 {{show.title}}
+      
