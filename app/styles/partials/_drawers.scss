@@ -10,4 +10,10 @@
   position: absolute;
   overflow: auto;
   background: #fff;
+  left: 0;
+  right: 0;
+
+  .poster {
+    width: 100%;
+  }
 }

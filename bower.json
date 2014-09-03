@@ -14,7 +14,8 @@
     "bootstrap": "~3.2.0",
     "ember-sockets": "~0.6.10",
     "normalize.css": "~3.0.1",
-    "snapjs": "~1.9.3"
+    "snapjs": "~1.9.3",
+    "grid.css": "git@github.com:axelander/grid.css.git"
   },
   "resolutions": {
     "ember": "1.7.0"
