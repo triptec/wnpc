@@ -1,13 +1,16 @@
 .snap-drawers
   .snap-drawer.snap-drawer-left
     ul
-      link-to 'movies' tag="li"
+      link-to 'movies.index' tag="li"
         a click="hideMenu target='view'" Movies
-      link-to 'shows' tag="li"
+      link-to 'shows.index' tag="li"
         a click="hideMenu target='view'" Shows
 
 #content.snap-content.clearfix
   a click="toggleMenu target='view'" Show/Hide menu
-  h2#title Who needs popcorn
+  .row
+    .col-12
+      .page-header
+        h1 Who needs popcorn?
 
   == outlet

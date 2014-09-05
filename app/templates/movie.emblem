@@ -1,24 +1,40 @@
-h3#movie-title {{model.title}} ({{model.rating}})
-
-p {{model.description}}
-
-ul
+.row
+  .col-4
+    img src=model.posterBig style="width: 100%;"
+  .col-8
+    h2#movie-title 
+      |{{model.title}} ({{model.rating}}) 
+      br
+      small
+        each genre in model.genres
+          |{{genre}} 
+    p {{model.description}}
+    p
+      strong {{model.actors}}
+    
     each torrent in model.items itemController="torrent"
-        li
-            div quality: {{torrent.content.quality}}
-            div size: {{torrent.content.size_bytes}}
-            div seeds: {{torrent.content.torrent_seeds}}
-            div torrent: {{torrent.content.torrent_url}}
-            ul
-                each file in torrent.content.files
-                    li
-                        a href="{{unbound WnpcENV.APP.apiHost}}/stream/{{unbound torrent.content.id}}/{{unbound file.encoded_path}}" target="_blank" {{unbound file.path}}
-                    li
-                        button{action 'play' file.stream_url target="torrent"} Play
-                        button{action 'pause' target="torrent"} Pause
-                        button{action 'quit' target="torrent"} Quit
-                        button{action 'torrent_pause' target="torrent"} Pause torrent
-                        button{action 'torrent_resume' target="torrent"} Resume torrent
-                        button{action 'torrent_select' _view.contentIndex target="torrent"} Select file
-                        button{action 'torrent_deselect' _view.contentIndex target="torrent"} Deselect file
-            button{action 'select' torrent.content.torrent_url target="torrent"} Select
+      .panel.panel-default
+        .panel-heading
+          |Quality: {{torrent.content.quality}}
+        .panel-body
+          strong Seeds: 
+          |{{torrent.content.torrent_seeds}}
+          br
+          strong Peers: 
+          |{{torrent.content.torrent_peers}}
+          br
+          button.btn.btn-primary{action 'select' torrent.content.torrent_url target="torrent"} Select
+
+          .actions
+            each file in torrent.content.files
+              br
+              a href="{{unbound WnpcENV.APP.apiHost}}/stream/{{unbound torrent.content.id}}/{{unbound file.encoded_path}}" target="_blank" {{unbound file.path}}
+              br
+              button.btn.btn-default{action 'play' file.stream_url target="torrent"} Play
+              button.btn.btn-default{action 'pause' target="torrent"} Pause
+              button.btn.btn-default{action 'quit' target="torrent"} Quit
+              button.btn.btn-default{action 'torrent_pause' target="torrent"} Pause torrent
+              button.btn.btn-default{action 'torrent_resume' target="torrent"} Resume torrent
+              button.btn.btn-default{action 'torrent_select' _view.contentIndex target="torrent"} Select file
+              button.btn.btn-default{action 'torrent_deselect' _view.contentIndex target="torrent"} Deselect file
+              
