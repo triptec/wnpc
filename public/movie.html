@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//vjs.zencdn.net/4.8/video-js.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//vjs.zencdn.net/4.8/video.js"></script>
+    <style>
+    .video-js .vjs-text-track {
+      background-color:transparent;
+    }
+    </style>
+  </head>
+  <body>
+    <script>
+      var $_GET = {};
+      if(document.location.toString().indexOf('?') !== -1) {
+        var query = document.location
+          .toString()
+          // get the query string
+          .replace(/^.*?\?/, '')
+          // and remove any existing hash string (thanks, @vrijdenker)
+          .replace(/#.*$/, '')
+          .split('&');
+
+        for(var i=0, l=query.length; i<l; i++) {
+           //var aux = decodeURIComponent(query[i]).split('=');
+           var aux = query[i].split('=');
+           $_GET[aux[0]] = aux[1];
+        }
+      }
+      //get the 'index' query parameter
+      //alert($_GET['index']);
+video_html = '<video crossorigin=anonumous id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264"><source src="'+ $_GET['video_url'] +'"  type="video/mp4" /><track kind="subtitles" src="'+ $_GET['subtitle_url'] +'" srclang="en" label="English" default></video>';      
+    $('body').append(video_html)
+    videojs("example_video_1", {}, function(){
+        // Player (this) is initialized and ready.
+    });
+    </script>
+  </body>
+</html>

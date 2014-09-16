@@ -11,24 +11,29 @@ TorrentController = Ember.Controller.extend(
     select: ()->
       return if @get('listening')
       console.log "Listening on #{@get('content.id').toLowerCase()}", "Emitting #{@get('content.torrent_url')}"
-      @socket.get('socket').on(@get('content.id').toLowerCase(), @torrent.bind(@))
-      @socket.get('socket').emit('torrent_get', @get('content.torrent_url'))
+      @socket.on(@get('content.id').toLowerCase(), @torrent.bind(@))
+      console.log @get('content')
+      @socket.emit('torrent_get', @get('content'))
       @set('listening',true)
 
     play:(link)->
-      @socket.get('socket').emit('player_play', link)
+      subtitle = null
+      subtitles = @get('content.movie.subtitles.english')
+      if subtitles
+        subtitle = subtitles.sort((a,b)->b.rating-a.rating)[0]
+      @socket.emit('player_play', {link:link, subtitle:subtitle})
     pause: ->
-      @socket.get('socket').emit('player_pause', {})
+      @socket.emit('player_pause', {})
     torrent_pause: ->
-      @socket.get('socket').emit('torrent_pause', @get('content.id').toLowerCase())
+      @socket.emit('torrent_pause', @get('content.id').toLowerCase())
     torrent_resume: ->
-      @socket.get('socket').emit('torrent_resume', @get('content.id').toLowerCase())
+      @socket.emit('torrent_resume', @get('content.id').toLowerCase())
     torrent_select: (file_index)->
-      @socket.get('socket').emit('torrent_select', @get('content.id').toLowerCase(), file_index)
+      @socket.emit('torrent_select', @get('content.id').toLowerCase(), file_index)
     torrent_deselect: (file_index)->
-      @socket.get('socket').emit('torrent_deselect', @get('content.id').toLowerCase(), file_index)
+      @socket.emit('torrent_deselect', @get('content.id').toLowerCase(), file_index)
     quit: ->
-      @socket.get('socket').emit('player_quit', {})
+      @socket.emit('player_quit', {})
 )
 
 `export default TorrentController`

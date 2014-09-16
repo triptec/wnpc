@@ -15,6 +15,7 @@ Movie = DS.Model.extend(
   writers: DS.attr("string")
   year: DS.attr("number")
   yts: DS.attr("string")
+  subtitles: []
 )
 
 `export default Movie`
